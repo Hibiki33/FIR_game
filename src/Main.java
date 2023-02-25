@@ -6,5 +6,6 @@ public class Main {
         board.setPiece(piece0);
         board.setPiece(piece1);
         System.out.println(board);
+        System.out.println(piece0);
     }
 }

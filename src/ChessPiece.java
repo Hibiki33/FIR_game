@@ -29,4 +29,17 @@ public class ChessPiece {
     public int getColor() {
         return color;
     }
+
+    @Override
+    public String toString() {
+        String chessColor;
+        if (color == 1) {
+            chessColor = "white";
+        } else {
+            chessColor = "black";
+        }
+        return Character.toString(col + 'A') +
+                Character.toString(row + '1') +
+                ":" + chessColor;
+    }
 }
