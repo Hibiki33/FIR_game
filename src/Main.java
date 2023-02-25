@@ -7,5 +7,8 @@ public class Main {
         board.setPiece(piece1);
         System.out.println(board);
         System.out.println(piece0);
+
+        GamePlaying game = new GamePlaying();
+        game.setTitle("FIVE IN A ROW");
     }
 }
