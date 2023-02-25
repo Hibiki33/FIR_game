@@ -9,6 +9,6 @@ public class Main {
         System.out.println(piece0);
 
         GamePlaying game = new GamePlaying();
-        game.setTitle("FIVE IN A ROW");
+        game.setTitle("Gobang");
     }
 }
