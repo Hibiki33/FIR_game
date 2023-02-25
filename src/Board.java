@@ -15,8 +15,10 @@ public class Board {
     public void setPiece(ChessPiece newPiece) {
         if (newPiece.getColor() == 1) {
             whiteChess.push(newPiece);
+            boardGrid[newPiece.getRow()][newPiece.getCol()] = 1;
         } else {
             blackChess.push(newPiece);
+            boardGrid[newPiece.getRow()][newPiece.getCol()] = -1;
         }
     }
 

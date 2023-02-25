@@ -18,6 +18,14 @@ public class ChessPiece {
         return coordinate;
     }
 
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
     public int getColor() {
         return color;
     }
