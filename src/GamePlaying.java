@@ -1,44 +1,37 @@
-import java.io.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class GamePlaying extends JFrame implements ActionListener, ItemListener {
-    private int maxTime = 60;
-    private javax.swing.Timer time;
-    private JLabel showTime;
-    private JButton reStart;
-
-    GamePlaying() {
-        time = new javax.swing.Timer(1000, this);
-        setLayout(new FlowLayout());
-        showTime = new JLabel(" ");
-        add(showTime);
-        reStart = new JButton("restart");
-        reStart.setEnabled(false);
-        add(reStart);
-        reStart.addActionListener(this);
-        setBounds(100, 100, 200, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == time) {
-            showTime.setText("Remain:" + maxTime + "s");
-            maxTime--;
-            if (maxTime <= 0) {
-                maxTime = 60;
-
+public class GamePlaying extends Frame {
+    public GamePlaying() {
+        setBackground(Color.LIGHT_GRAY);
+        setLayout(new BorderLayout());
+        Board b = new Board();
+        add("Center", b);
+        Panel p = new Panel();
+        Button pass = new Button("放弃一次");
+        Button color = new Button("变棋盘背景");
+        Button fail = new Button("认输");
+        Button back = new Button("悔棋");
+        p.setLayout(new GridLayout(8, 1, 10, 10));
+        p.add(new Label());
+        p.add(pass);
+        p.add(color);
+        p.add(fail);
+        p.add(back);
+        add("East",p);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
             }
-        } else if (e.getSource() == reStart) {
-
-        }
-    }
-
-    @Override
-    public void itemStateChanged(ItemEvent e) {
-
+        });
+        setSize(500,450);
+        setVisible(true);
     }
 }
