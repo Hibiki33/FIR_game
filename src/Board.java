@@ -88,7 +88,11 @@ public class Board extends Canvas {
     }
 
     public String getCoordinate(int x, int y) {
-        return Character.toString(y + 'A') + Character.toString(x + '1');
+        if (x <= 9) {
+            return Character.toString(y + 'A') + Character.toString(x + '1');
+        } else {
+            return Character.toString(y + 'A') + "1" + Character.toString(x + '0' - 10);
+        }
     }
 
     // FOR TEST

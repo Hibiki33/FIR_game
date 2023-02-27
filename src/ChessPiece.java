@@ -39,7 +39,7 @@ public class ChessPiece {
             chessColor = "black";
         }
         return Character.toString(col + 'A') +
-                Character.toString(row + '1') +
+                (row < 10 ? Character.toString(row + '1') : "1" + Character.toString(row + '0' - 10)) +
                 ":" + chessColor;
     }
 }

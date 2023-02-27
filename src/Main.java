@@ -3,25 +3,29 @@ import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
-        Board board = new Board();
-        ChessPiece piece0 = new ChessPiece(2, 4, 1);
-        ChessPiece piece1 = new ChessPiece(14, 2, -1);
-        board.setPiece(piece0);
-        board.setPiece(piece1);
-        System.out.println(board);
-        System.out.println(piece0);
+        boolean continuePlaying = true;
+        while (continuePlaying) {
+            JFrame chooseColorMessage = new JFrame();
+            String[] colorOptions = {"BLACK", "WHITE", "EXIT"};
+            int colorOption = JOptionPane.showOptionDialog(chooseColorMessage, "Choose Your Color", "COlOR OPTION",
+                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE, null, colorOptions, colorOptions[2]);
+            switch (colorOption) {
+                case 0 -> System.out.println("black");
+                case 1 -> System.out.println("white");
+                default -> System.exit(0);
+            }
 
-        JFrame jFrame = new JFrame();
-        int colorOption = JOptionPane.showConfirmDialog(jFrame, "Choose Your Color");
-        if (colorOption == 0) {
-            System.out.println("black");
-        } else if (colorOption == 1) {
-            System.out.println("white");
-        } else {
-            System.exit(0);
+            GamePlaying game = new GamePlaying();
+            game.setTitle("Gobang");
+
+            JFrame chooseNextMessage = new JFrame();
+            String[] nextOptions = {"One More Round", "Close"};
+            int nextOption = JOptionPane.showOptionDialog(chooseNextMessage, "One more round or close ?",
+                    "NEXT OPTION", JOptionPane.OK_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE,
+                    null, nextOptions, nextOptions[1]);
+            if (nextOption == 1) {
+                continuePlaying = false;
+            }
         }
-
-        GamePlaying game = new GamePlaying();
-        game.setTitle("Gobang");
     }
 }
