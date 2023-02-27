@@ -50,15 +50,19 @@ public class Board extends Canvas {
                     if (player == 1) {
                         g.setColor(Color.BLACK);
                         boardGrid[(cx - sx) / w][(cy - sy) / w] = 1;
+                        ChessPiece piece = new ChessPiece((cx - sx) / w, (cy - sy) / w, 1);
+                        System.out.println(piece);
                     } else {
                         g.setColor(Color.WHITE);
-                        boardGrid[(cx - sx) / w][(cy - sy) / w] = 2;
+                        boardGrid[(cx - sx) / w][(cy - sy) / w] = -1;
+                        ChessPiece piece = new ChessPiece((cx - sx) / w, (cy - sy) / w, -1);
+                        System.out.println(piece);
                     }
                     g.fillOval(cx - w / 2 + 1, cy - w / 2 + 1, w - 2, w - 2);
                     g.setXORMode(Board.this.getBackground());
                     g.setColor(Color.RED);
                     g.fillRect(cx - w / 4, cy - w / 4, w / 2, w / 2);
-                    player = (player + 1) % 2;
+                    player = 1 - player;
                 }
             }
         });

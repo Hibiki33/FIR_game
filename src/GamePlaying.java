@@ -12,26 +12,25 @@ public class GamePlaying extends Frame {
     public GamePlaying() {
         setBackground(Color.LIGHT_GRAY);
         setLayout(new BorderLayout());
-        Board b = new Board();
-        add("Center", b);
-        Panel p = new Panel();
-        Button pass = new Button("放弃一次");
-        Button color = new Button("变棋盘背景");
-        Button fail = new Button("认输");
-        Button back = new Button("悔棋");
-        p.setLayout(new GridLayout(8, 1, 10, 10));
-        p.add(new Label());
-        p.add(pass);
-        p.add(color);
-        p.add(fail);
-        p.add(back);
-        add("East",p);
+        add("Center", new Board());
+        Panel panel = new Panel();
+        Button pass = new Button("pass");
+        Button color = new Button("color");
+        Button fail = new Button("fail");
+        Button back = new Button("back");
+        panel.setLayout(new GridLayout(8, 1, 10, 10));
+        panel.add(new Label());
+        panel.add(pass);
+        panel.add(color);
+        panel.add(fail);
+        panel.add(back);
+        add("East", panel);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 dispose();
             }
         });
-        setSize(500,450);
+        setSize(400, 360);
         setVisible(true);
     }
 }
